@@ -19,6 +19,7 @@ Then load the package with:
 - `mw_read_streamlines()`: Read streamlines from *.iff file.
 - `mw_read_well_filters()`: Read wells from *.ipf file.
 - `mw_create_sl_fltr_table()`: Create table with indices linking the streamlines to well filters.
+- `mw_example_concentrations`: Initialise example concentrations in the subsoil.
 
 ## Get help
 

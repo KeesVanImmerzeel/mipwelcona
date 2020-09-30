@@ -7,6 +7,7 @@
 #' * \code{\link{mw_read_streamlines}}
 #' * \code{\link{mw_read_well_filters}}
 #' * \code{\link{mw_create_sl_fltr_table}}
+#' * \code{\link{mw_example_concentrations}}
 #'
 #' @docType package
 #' @name mipwelcona
@@ -22,5 +23,8 @@
 #' @importFrom magrittr %>%
 #'
 #' @importFrom utils read.csv
+#'
+#' @importFrom raster raster
+#' @importFrom raster brick
 
 NULL

@@ -17,7 +17,10 @@ RoxygenNote: 7.1.1
 Imports: 
     dplyr,
     magrittr,
-    utils
+    utils,
+    raster,
+    sp,
+    rgdal
 Depends: 
     R (>= 2.10)
 Suggests: 
