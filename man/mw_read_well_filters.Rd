@@ -11,14 +11,16 @@ mw_read_well_filters(fname)
 }
 \value{
 dataframe with the following variables (columns):
-FLTR_NR: Filter number (integer)
-FLTR_ID: Filter ID (character)
-WL_NR: (unique) Well number (numeric)
-X: x-coordinate (numeric)
-Y: y-coordinate (numeric)
-BK_FLTR: Top filter relative to reference level (m) (numeric)
-OK_FLTR: Bottom filter relative to reference level (m) (numeric)
-Q_FLTR: Extraction (m3/day; negative is extraction; positive is infiltration) (numeric)
+\itemize{
+\item FLTR_NR: Filter number (integer)
+\item FLTR_ID: Filter ID (character)
+\item WL_NR: (unique) Well number (numeric)
+\item X: x-coordinate (numeric)
+\item Y: y-coordinate (numeric)
+\item BK_FLTR: Top filter relative to reference level (m) (numeric)
+\item OK_FLTR: Bottom filter relative to reference level (m) (numeric)
+\item Q_FLTR: Extraction (m3/day; negative is extraction; positive is infiltration) (numeric)
+}
 }
 \description{
 Read wells from *.ipf file.

@@ -2,12 +2,12 @@
 #'
 #' @param fname Filename (character)
 #' @return dataframe with the following variables (columns):
-#'    SL_NR: Streamline number (integer)
-#'    LAY: Layer number (integer)
-#'    X: x-coordinate (numeric)
-#'    Y: y-coordinate (numeric)
-#'    Z: Z-coordinate (numeric)
-#'    TIME: Time, years (numeric)
+#' * SL_NR: Streamline number (integer)
+#' * LAY: Layer number (integer)
+#' * X: x-coordinate (numeric)
+#' * Y: y-coordinate (numeric)
+#' * Z: Z-coordinate (numeric)
+#' * TIME: Time, years (numeric)
 #' @examples
 #' fname <- system.file("extdata","streamlines.iff",package="mipwelcona")
 #' strm_lns <- mw_read_streamlines(fname)

@@ -56,8 +56,8 @@
 #' @param strm_lns Streamlines as read from function mw_read_streamlines()
 #' @param well_fltrs Well filters as read from function mw_read_well_filters()
 #' @return dataframe with the following variables (columns):
-#'    SL_NR: Streamline number (integer)
-#'    FLTR_NR: Filter number (integer)
+#' * SL_NR: Streamline number (integer)
+#' * FLTR_NR: Filter number (integer)
 #' @examples
 #' fname <- system.file("extdata","streamlines.iff",package="mipwelcona")
 #' strm_lns <- mw_read_streamlines(fname)

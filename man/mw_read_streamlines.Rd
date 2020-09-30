@@ -11,12 +11,14 @@ mw_read_streamlines(fname)
 }
 \value{
 dataframe with the following variables (columns):
-SL_NR: Streamline number (integer)
-LAY: Layer number (integer)
-X: x-coordinate (numeric)
-Y: y-coordinate (numeric)
-Z: Z-coordinate (numeric)
-TIME: Time, years (numeric)
+\itemize{
+\item SL_NR: Streamline number (integer)
+\item LAY: Layer number (integer)
+\item X: x-coordinate (numeric)
+\item Y: y-coordinate (numeric)
+\item Z: Z-coordinate (numeric)
+\item TIME: Time, years (numeric)
+}
 }
 \description{
 Read streamlines from *.iff file.

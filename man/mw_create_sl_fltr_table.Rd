@@ -13,8 +13,10 @@ mw_create_sl_fltr_table(strm_lns, well_fltrs)
 }
 \value{
 dataframe with the following variables (columns):
-SL_NR: Streamline number (integer)
-FLTR_NR: Filter number (integer)
+\itemize{
+\item SL_NR: Streamline number (integer)
+\item FLTR_NR: Filter number (integer)
+}
 }
 \description{
 Create table with indices linking the streamlines to well filters.
