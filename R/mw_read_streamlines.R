@@ -6,6 +6,7 @@
 #'    LAY: Layer number (integer)
 #'    X: x-coordinate (numeric)
 #'    Y: y-coordinate (numeric)
+#'    Z: Z-coordinate (numeric)
 #'    TIME: Time, years (numeric)
 #' @examples
 #' fname <- system.file("extdata","streamlines.iff",package="mipwelcona")
@@ -22,9 +23,10 @@ mw_read_streamlines <- function(fname) {
       which(x == "ILAY"),
       which(x == "XCRD."),
       which(x == "YCRD."),
+      which(x == "ZCRD."),
       which(x == "TIME(YEARS)")
     )
-  if (length(i) != 5) {
+  if (length(i) != 6) {
     stop("Not all information is included in iff-file.")
   }
   x <-
@@ -37,6 +39,7 @@ mw_read_streamlines <- function(fname) {
       skip = n + 1
     )
   x <- x[, i]
-  names(x) <- c("SL_NR", "LAY", "X", "Y", "TIME")
+  names(x) <- c("SL_NR", "LAY", "X", "Y", "Z", "TIME")
+  x %<>% dplyr::select("X", "Y", "Z", "TIME", "LAY", "SL_NR")
   return(x)
 }

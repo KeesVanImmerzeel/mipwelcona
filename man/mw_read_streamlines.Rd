@@ -15,6 +15,7 @@ SL_NR: Streamline number (integer)
 LAY: Layer number (integer)
 X: x-coordinate (numeric)
 Y: y-coordinate (numeric)
+Z: Z-coordinate (numeric)
 TIME: Time, years (numeric)
 }
 \description{

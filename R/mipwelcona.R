@@ -6,6 +6,7 @@
 #'
 #' * \code{\link{mw_read_streamlines}}
 #' * \code{\link{mw_read_well_filters}}
+#' * \code{\link{mw_create_sl_fltr_table}}
 #'
 #' @docType package
 #' @name mipwelcona
@@ -14,6 +15,8 @@
 #' @importFrom dplyr mutate
 #' @importFrom dplyr cur_group_id
 #' @importFrom dplyr ungroup
+#' @importFrom dplyr filter
+#' @importFrom dplyr select
 #'
 #' @importFrom magrittr %<>%
 #' @importFrom magrittr %>%
