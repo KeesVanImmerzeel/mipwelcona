@@ -1,6 +1,6 @@
 #' Determine the concentration layer numbers.
 #'
-#' @inheritParams .nearest_well_fltr
+#' @inheritParams mw_create_sl_fltr_table
 #' @param conc_l_lev Levels of concentration layers (RasterBrick)
 #' @return Numbers of the concentration layer (integer vector)
 # @examples

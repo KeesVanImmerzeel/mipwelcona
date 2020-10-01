@@ -1,6 +1,5 @@
 #' Initialise example concentration layer levels.
 #'
-#' @inheritParams mw_create_sl_fltr_table
 #' @return rasterbrick with 8 rasters with concentration layer levels.
 #' @examples
 #' x <- mw_example_conc_layer_levels()
