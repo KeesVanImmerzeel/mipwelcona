@@ -2,7 +2,7 @@
 % Please edit documentation in R/mw_example_concentrations.R
 \name{mw_example_concentrations}
 \alias{mw_example_concentrations}
-\title{Initialise example initial concentrations in the subsoil.}
+\title{Initialise example initial concentrations layers in the subsoil.}
 \usage{
 mw_example_concentrations()
 }
@@ -10,7 +10,7 @@ mw_example_concentrations()
 rasterbrick with 9 concentration rasters.
 }
 \description{
-Initialise example initial concentrations in the subsoil.
+Initialise example initial concentrations layers in the subsoil.
 }
 \examples{
 x <- mw_example_concentrations()

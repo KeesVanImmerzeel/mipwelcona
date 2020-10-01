@@ -9,6 +9,7 @@
 #' * \code{\link{mw_create_sl_fltr_table}}
 #' * \code{\link{mw_example_concentrations}}
 #' * \code{\link{mw_example_conc_layer_levels}}
+#' * \code{\link{mw_conservative_conc}}
 #'
 #' @docType package
 #' @name mipwelcona
