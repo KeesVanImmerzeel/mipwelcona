@@ -1,4 +1,4 @@
-#' Initialise example concentrations in the subsoil.
+#' Initialise example initial concentrations in the subsoil.
 #'
 #' @return rasterbrick with 9 concentration rasters.
 #' @examples

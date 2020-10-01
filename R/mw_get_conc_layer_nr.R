@@ -1,16 +1,17 @@
 #' Determine the concentration layer numbers.
 #'
 #' @inheritParams mw_create_sl_fltr_table
-#' @param conc_l_lev Levels of concentration layers (RasterBrick)
-#' @return Numbers of the concentration layer (integer vector)
+#' @param conc_l_lev Levels of concentration layers (RasterBrick).
+#' @return Numbers of the concentration layer corresponding to all locations (x,y,z) of
+#'   streamline trajects (integer vector).
 # @examples
 #' fname <- system.file("extdata","streamlines.iff",package="mipwelcona")
 #' strm_lns <- mw_read_streamlines(fname)
 #' conc_l_lev <- mw_example_conc_layer_levels()
 #' x <- .mw_get_conc_layer_nr(strm_lns, conc_l_lev)
-#' @export
+# @export
 .mw_get_conc_layer_nr <- function(strm_lns, conc_l_lev) {
-  #x conc_l_level and z-level (1 record)
+  #x conc_l_levels and z-level (1 record)
   .f <- function(x) {
     n <- length(x)
     i <- which(x[1:(n-1)]<x[n])

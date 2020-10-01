@@ -9,10 +9,11 @@
 \arguments{
 \item{strm_lns}{Streamlines as read from function mw_read_streamlines()}
 
-\item{conc_l_lev}{Levels of concentration layers (RasterBrick)}
+\item{conc_l_lev}{Levels of concentration layers (RasterBrick).}
 }
 \value{
-Numbers of the concentration layer (integer vector)
+Numbers of the concentration layer corresponding to all locations (x,y,z) of
+streamline trajects (integer vector).
 fname <- system.file("extdata","streamlines.iff",package="mipwelcona")
 strm_lns <- mw_read_streamlines(fname)
 conc_l_lev <- mw_example_conc_layer_levels()
