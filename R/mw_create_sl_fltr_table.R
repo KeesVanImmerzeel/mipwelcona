@@ -53,6 +53,7 @@
 
 #' Create table with indices linking the streamlines to well filters.
 #'
+#' @inheritParams .nearest_well_fltr
 #' @param strm_lns Streamlines as read from function mw_read_streamlines()
 #' @param well_fltrs Well filters as read from function mw_read_well_filters()
 #' @return dataframe with the following variables (columns):
@@ -65,9 +66,9 @@
 #' well_fltrs <- mw_read_well_filters(fname)
 #' sl_fltr_table <- mw_create_sl_fltr_table(strm_lns, well_fltrs)
 #' @export
-mw_create_sl_fltr_table <- function(strm_lns, well_fltrs){
+mw_create_sl_fltr_table <- function(strm_lns, well_fltrs, maxdist = 100){
   X <- strm_lns %>% dplyr::filter(TIME==0) %>% as.matrix()
-  fltr_nrs <- apply(X,1,.nearest_well_fltr,well_fltrs, maxdist = 1000)
+  fltr_nrs <- apply(X,1,.nearest_well_fltr,well_fltrs, maxdist)
   df <- data.frame(SL_NR=X[,"SL_NR"], FLTR_NR=fltr_nrs)
   return(df)
 }

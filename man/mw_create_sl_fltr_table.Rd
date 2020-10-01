@@ -4,12 +4,14 @@
 \alias{mw_create_sl_fltr_table}
 \title{Create table with indices linking the streamlines to well filters.}
 \usage{
-mw_create_sl_fltr_table(strm_lns, well_fltrs)
+mw_create_sl_fltr_table(strm_lns, well_fltrs, maxdist = 100)
 }
 \arguments{
 \item{strm_lns}{Streamlines as read from function mw_read_streamlines()}
 
 \item{well_fltrs}{Well filters as read from function mw_read_well_filters()}
+
+\item{maxdist}{The maximum distance the particle can be from a well filter if it is to be a selection candidate.}
 }
 \value{
 dataframe with the following variables (columns):

@@ -6,7 +6,8 @@
 The package `mipwelcona` can be used to calculate the development of the concentrations of solvents in pumped groundwater. The package is based on the results of:
 
 * streamline calculations (backwards from well screens) in a [MIPWA](https://oss.deltares.nl/web/imod/mipwa-showcase) groundwater model;
-* Initial concentrations in the model layers;
+* Initial concentrations in specified layers;
+* Levels of concentration layer levels; 
 * Specified parameters for retardation and decay.
 
 This package is a further development of the program [WELCONA](https://edepot.wur.nl/10147).
@@ -25,7 +26,8 @@ Then load the package with:
 - `mw_read_streamlines()`: Read streamlines from *.iff file;
 - `mw_read_well_filters()`: Read wells from *.ipf file;
 - `mw_create_sl_fltr_table()`: Create table with indices linking the streamlines to well filters;
-- `mw_example_concentrations()`: Initialise example concentrations in the subsoil. 
+- `mw_example_concentrations()`: Initialise example concentrations in the subsoil; 
+- `mw_example_conc_layer_levels()`: Initialise example concentration layer levels.
 
 ## Get help
 
@@ -37,18 +39,22 @@ Prepare the following files in order to be able to perform an analysis with `mip
 
 * `iff` streamline file;
 * `ipf` well filter file;
-* For every layer in the groundwater model: a map with initial concentrations. 
+* For every concentration layer: a map with initial concentrations; 
+* The levels (relative to a reference level) between these concentration layers.
 
 
-By streamline calculation in MIPWA (backwards from well screens), an `iff` file is created. Here is a screenshot of the top lines in an `iff` file.
+By streamline calculation in MIPWA (backwards from well screens), an `iff` file is created. Here is a screenshot of the top lines in an `iff` file containing the calculated *streamlines*.
 
 ![Capture](https://user-images.githubusercontent.com/16401251/94780598-001ad380-03c9-11eb-9558-82b8f4da889c.PNG)
 
-In MIPWA the `ipf` file specifies the well characteristics (location, discharge etc.). Here is a screenshot of the top lines in an `ipf` file.
+In MIPWA the `ipf` file specifies the *well characteristics* (location, discharge etc.). Here is a screenshot of the top lines in an `ipf` file.
 
 ![Capture2](https://user-images.githubusercontent.com/16401251/94781503-3a38a500-03ca-11eb-96ab-6d6c9ed4637f.PNG)
 
-The initial concentrations in the subsoil must be specified for every layer in the groundwater model in the form of a `RasterLayer`. In `mipwelcona` these raster layers are specified in a single object: a `RasterBrick`. The first `RasterLayer` in the `RasterBrick` represents the concentrations in the top aquifer, the second `RasterLayer` represents the concentrations in the aquifer below the top aquifer etc. An example of a `RasterBrick` with concentrations is supplied using the function `mw_example_concentrations()`.
+The initial *concentrations* in the subsoil must be specified for every concentration layer. These initial concentrations (maps) have the format of a `RasterLayer`. In `mipwelcona` these raster layers are specified in a single object: a `RasterBrick`. The first `RasterLayer` in the `RasterBrick` represents the concentrations in the top concentration layer, the second `RasterLayer` represents the concentrations in the concentration layer below the first concentration layer etc. An example of a `RasterBrick` with concentrations is supplied using the function `mw_example_concentrations()`.
+
+The concentration layers are separated at *levels* that are also with a `RasterBrick` object. The first `RasterLayer` in this `RasterBrick` represents the levels between the top concentration layer and the concentration layer below the top concentration layer etc. So, if (n) concentration layers are specified, the number of level `RasterLayers` to specify is equal to (n-1). An example of a `RasterBrick` with levels of concentration layers is supplied using the function `mw_example_conc_layer_levels()`.
+
 
 ## Example work flow
 
