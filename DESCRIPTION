@@ -20,7 +20,8 @@ Imports:
     utils,
     raster,
     sp,
-    rgdal
+    rgdal,
+    stats
 Depends: 
     R (>= 2.10)
 Suggests: 

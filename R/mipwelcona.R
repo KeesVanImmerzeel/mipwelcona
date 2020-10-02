@@ -29,5 +29,7 @@
 #' @importFrom raster raster
 #' @importFrom raster brick
 #' @importFrom raster extract
+#'
+#' @importFrom stats approx
 
 NULL

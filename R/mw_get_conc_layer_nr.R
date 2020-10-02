@@ -11,19 +11,22 @@
 #' x <- .mw_get_conc_layer_nr(strm_lns, conc_l_lev)
 # @export
 .mw_get_conc_layer_nr <- function(strm_lns, conc_l_lev) {
-  #x conc_l_levels and z-level (1 record)
   .f <- function(x) {
-    n <- length(x)
-    i <- which(x[1:(n-1)]<x[n])
-    if (length(i)>0) {
-      return(min(i))
-    } else {
-      return(n)
-    }
+    n <- length(x) - 1
+    stats::approx(
+      x[1:n],
+      y = 1:n,
+      xout = x[n + 1],
+      method = "constant",
+      rule = c(2:2)
+    )$y
   }
-  x <- raster::extract(conc_l_lev,cbind(strm_lns$X,strm_lns$Y)) %>% as.data.frame()
+
+  x <-
+    raster::extract(conc_l_lev, cbind(strm_lns$X, strm_lns$Y)) %>% as.data.frame()
   x$Z <- strm_lns$Z
-  x %<>% as.matrix()
-  apply(x,1,.f)
+  x %>% as.matrix() %>% apply(1, .f)
 }
+
+
 
