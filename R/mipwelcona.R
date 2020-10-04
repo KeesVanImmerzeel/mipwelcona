@@ -18,6 +18,8 @@
 #' @importFrom dplyr ungroup
 #' @importFrom dplyr filter
 #' @importFrom dplyr select
+#' @importFrom dplyr distinct
+#' @importFrom dplyr arrange
 #'
 #' @importFrom magrittr %<>%
 #' @importFrom magrittr %>%

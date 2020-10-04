@@ -10,7 +10,7 @@ fname <-
   system.file("extdata", "well_filters.ipf", package = "mipwelcona")
 chk_mw_read_well_filters <- mw_read_well_filters(fname)
 
-chk_sl_fltr_table <- mw_create_sl_fltr_table(chk_mw_read_streamlines, chk_mw_read_well_filters)
+chk_sl_fltr_table <- .mw_create_sl_fltr_table(chk_mw_read_streamlines, chk_mw_read_well_filters)
 
 ## Save internal objects
 usethis::use_data(chk_mw_read_streamlines,

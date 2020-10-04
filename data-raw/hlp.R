@@ -13,7 +13,9 @@ conc_l <- mw_example_concentrations()
 conc_l_lev <- mw_example_conc_layer_levels()
 
 # Determine concentrations (conservative) at all locations (x,y,z) of streamline trajects.
-# conc_conserv <- .mw_conservative_conc(strm_lns, conc_l_lev, conc_l)
+conc_conserv <- .mw_conservative_conc(strm_lns, conc_l_lev, conc_l)
+
+
 
 data <- strm_lns %>% dplyr::filter(SL_NR==1)
 
