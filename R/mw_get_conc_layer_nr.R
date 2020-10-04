@@ -1,6 +1,6 @@
 #' Determine the concentration layer numbers.
 #'
-#' @inheritParams mw_create_sl_fltr_table
+#' @inheritParams .mw_create_sl_fltr_table
 #' @param conc_l_lev Levels of concentration layers (RasterBrick).
 #' @return Numbers of the concentration layer corresponding to all locations (x,y,z) of
 #'   streamline trajects (integer vector).
