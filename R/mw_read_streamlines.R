@@ -52,7 +52,7 @@ mw_read_streamlines <- function(fname) {
   # Double records are filtered out; group by streamline (SL_NR); add
   x %<>% dplyr::select("X", "Y", "Z", "TIME", "LAY", "SL_NR") %>%
     dplyr::distinct(X, Y, Z, TIME, .keep_all = TRUE) %>% dplyr::group_by(SL_NR) %>%
-    dplyr::group_modify(.f) %>% dplyr::mutate(DIST = cumsum(DIST))
-
+    dplyr::group_modify(.f) %>% dplyr::mutate(DIST = cumsum(DIST) ) %>%
+    dplyr::mutate(TIME=365*TIME)
   return(x)
 }
