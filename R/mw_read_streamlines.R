@@ -40,6 +40,6 @@ mw_read_streamlines <- function(fname) {
     )
   x <- x[, i]
   names(x) <- c("SL_NR", "LAY", "X", "Y", "Z", "TIME")
-  x %<>% dplyr::select("X", "Y", "Z", "TIME", "LAY", "SL_NR")
+  x %<>% dplyr::select("X", "Y", "Z", "TIME", "LAY", "SL_NR") %>% dplyr::distinct(X, Y, Z, TIME, .keep_all = TRUE)
   return(x)
 }
