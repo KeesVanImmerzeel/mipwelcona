@@ -20,6 +20,7 @@
 #' @importFrom dplyr select
 #' @importFrom dplyr distinct
 #' @importFrom dplyr arrange
+#' @importFrom dplyr group_modify
 #'
 #' @importFrom magrittr %<>%
 #' @importFrom magrittr %>%

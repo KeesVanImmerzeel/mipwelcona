@@ -10,18 +10,24 @@ mw_read_streamlines(fname)
 \item{fname}{Filename (character)}
 }
 \value{
-dataframe with the following variables (columns):
+tibble with the following variables (columns):
 \itemize{
 \item SL_NR: Streamline number (integer)
 \item LAY: Layer number (integer)
 \item X: x-coordinate (numeric)
 \item Y: y-coordinate (numeric)
 \item Z: Z-coordinate (numeric)
-\item TIME: Time, years (numeric)
+\item TIME: Time, days (numeric)
+\item DIST: Distance traveled since t=0 (meters) (numeric)
 }
 }
 \description{
 Read streamlines from *.iff file.
+}
+\details{
+\itemize{
+\item Resulting dataframe is grouped by streamline number (SL_NR)
+}
 }
 \examples{
 fname <- system.file("extdata","streamlines.iff",package="mipwelcona")

@@ -19,8 +19,7 @@ mw_read_streamlines <- function(fname) {
   # On a streamline : calculate the distance to previous point.
   .f <- function(data,...) {
     data %>% dplyr::mutate(DIST = sqrt( (dplyr::lag(X, default=X[1]) - X) ^ 2 +
-                                          (dplyr::lag(Y, default=Y[1]) - Y) ^ 2 +
-                                          (dplyr::lag(Z, default=Z[1]) - Z) ^ 2) )
+                                          (dplyr::lag(Y, default=Y[1]) - Y) ^ 2 +                                          (dplyr::lag(Z, default=Z[1]) - Z) ^ 2) )
   }
   n <-
     readLines(fname, n = 1) %>% as.numeric()
@@ -49,7 +48,7 @@ mw_read_streamlines <- function(fname) {
     )
   x <- x[, i]
   names(x) <- c("SL_NR", "LAY", "X", "Y", "Z", "TIME")
-  # Double records are filtered out; group by streamline (SL_NR); add
+  # Double records are filtered out; group by streamline (SL_NR); add DIST variable; TIME in days.
   x %<>% dplyr::select("X", "Y", "Z", "TIME", "LAY", "SL_NR") %>%
     dplyr::distinct(X, Y, Z, TIME, .keep_all = TRUE) %>% dplyr::group_by(SL_NR) %>%
     dplyr::group_modify(.f) %>% dplyr::mutate(DIST = cumsum(DIST) ) %>%
