@@ -8,6 +8,7 @@
 #' * \code{\link{mw_read_well_filters}}
 #' * \code{\link{mw_example_concentrations}}
 #' * \code{\link{mw_example_conc_layer_levels}}
+#' * \code{\link{mw_init}}
 #'
 #' @docType package
 #' @name mipwelcona

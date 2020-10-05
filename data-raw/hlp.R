@@ -16,16 +16,4 @@ conc_l_lev <- mw_example_conc_layer_levels()
 conc_conserv <- .mw_conservative_conc(strm_lns, conc_l_lev, conc_l)
 
 
-
-data <- strm_lns %>% dplyr::filter(SL_NR==1)
-
-# On a streamline: calculate the distance to previous point.
-.f <- function(data,...) {
-  data %>% dplyr::mutate(DIST = sqrt( (dplyr::lag(X, default=X[1]) - X) ^ 2 +
-                                      (dplyr::lag(Y, default=Y[1]) - Y) ^ 2 +
-                                      (dplyr::lag(Z, default=Z[1]) - Z) ^ 2) )
-}
-
-test <- strm_lns %>% dplyr::group_by(SL_NR) %>% dplyr::group_modify(.f) %>% dplyr::mutate(DIST = cumsum(DIST)) %>% ungroup()
-
-
+x <- mw_init(strm_lns, conc_l_lev, conc_l)

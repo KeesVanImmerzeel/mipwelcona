@@ -2,6 +2,7 @@
 
 export(mw_example_conc_layer_levels)
 export(mw_example_concentrations)
+export(mw_init)
 export(mw_read_streamlines)
 export(mw_read_well_filters)
 importFrom(dplyr,arrange)

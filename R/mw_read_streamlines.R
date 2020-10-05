@@ -3,7 +3,6 @@
 #' @param fname Filename (character)
 #' @return tibble with the following variables (columns):
 #' * SL_NR: Streamline number (integer)
-#' * LAY: Layer number (integer)
 #' * X: x-coordinate (numeric)
 #' * Y: y-coordinate (numeric)
 #' * Z: Z-coordinate (numeric)
@@ -19,7 +18,8 @@ mw_read_streamlines <- function(fname) {
   # On a streamline : calculate the distance to previous point.
   .f <- function(data,...) {
     data %>% dplyr::mutate(DIST = sqrt( (dplyr::lag(X, default=X[1]) - X) ^ 2 +
-                                          (dplyr::lag(Y, default=Y[1]) - Y) ^ 2 +                                          (dplyr::lag(Z, default=Z[1]) - Z) ^ 2) )
+                                          (dplyr::lag(Y, default=Y[1]) - Y) ^ 2 +
+                                          (dplyr::lag(Z, default=Z[1]) - Z) ^ 2) )
   }
   n <-
     readLines(fname, n = 1) %>% as.numeric()
@@ -28,13 +28,12 @@ mw_read_streamlines <- function(fname) {
   i <-
     c(
       which(x == "PARTICLE_NUMBER"),
-      which(x == "ILAY"),
       which(x == "XCRD."),
       which(x == "YCRD."),
       which(x == "ZCRD."),
       which(x == "TIME(YEARS)")
     )
-  if (length(i) != 6) {
+  if (length(i) != 5) {
     stop("Not all information is included in iff-file.")
   }
   x <-
@@ -47,9 +46,9 @@ mw_read_streamlines <- function(fname) {
       skip = n + 1
     )
   x <- x[, i]
-  names(x) <- c("SL_NR", "LAY", "X", "Y", "Z", "TIME")
+  names(x) <- c("SL_NR", "X", "Y", "Z", "TIME")
   # Double records are filtered out; group by streamline (SL_NR); add DIST variable; TIME in days.
-  x %<>% dplyr::select("X", "Y", "Z", "TIME", "LAY", "SL_NR") %>%
+  x %<>% dplyr::select("X", "Y", "Z", "TIME", "SL_NR") %>%
     dplyr::distinct(X, Y, Z, TIME, .keep_all = TRUE) %>% dplyr::group_by(SL_NR) %>%
     dplyr::group_modify(.f) %>% dplyr::mutate(DIST = cumsum(DIST) ) %>%
     dplyr::mutate(TIME=365*TIME)

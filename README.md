@@ -27,6 +27,7 @@ Then load the package with:
 - `mw_read_well_filters()`: Read wells from *.ipf file;
 - `mw_example_concentrations()`: Initialise example concentrations in the subsoil; 
 - `mw_example_conc_layer_levels()`: Initialise example concentration layer levels;
+- `mw_init()`: Initialize streamline concentration table.
 
 ## Get help
 

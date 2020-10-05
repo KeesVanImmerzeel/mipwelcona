@@ -13,7 +13,6 @@ mw_read_streamlines(fname)
 tibble with the following variables (columns):
 \itemize{
 \item SL_NR: Streamline number (integer)
-\item LAY: Layer number (integer)
 \item X: x-coordinate (numeric)
 \item Y: y-coordinate (numeric)
 \item Z: Z-coordinate (numeric)
