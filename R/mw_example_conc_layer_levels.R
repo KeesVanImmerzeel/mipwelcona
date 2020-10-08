@@ -8,7 +8,7 @@
 mw_example_conc_layer_levels <- function() {
   fname <-
     system.file("extdata", "concentrations.tif", package = "mipwelcona")
-  x1 <- raster::raster(fname)
+  x1 <- suppressWarnings(raster::raster(fname))
   x1[] <- 0;
   names(x1) <- c("level")
   x2 <- x1; x2[] <- -10

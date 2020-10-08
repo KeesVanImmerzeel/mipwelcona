@@ -24,6 +24,7 @@
 #' @importFrom dplyr group_modify
 #' @importFrom dplyr rename
 #' @importFrom dplyr bind_rows
+#' @importFrom dplyr pull
 #'
 #' @importFrom magrittr %<>%
 #' @importFrom magrittr %>%
