@@ -22,6 +22,8 @@
 #' @importFrom dplyr distinct
 #' @importFrom dplyr arrange
 #' @importFrom dplyr group_modify
+#' @importFrom dplyr rename
+#' @importFrom dplyr bind_rows
 #'
 #' @importFrom magrittr %<>%
 #' @importFrom magrittr %>%
@@ -33,5 +35,8 @@
 #' @importFrom raster extract
 #'
 #' @importFrom stats approx
-
+#' @importFrom lmomco vec2par
+#' @importFrom lmomco cdfpe3
+#'
+#' @importFrom purrrlyr by_row
 NULL

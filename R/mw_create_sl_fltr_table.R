@@ -28,8 +28,8 @@
 
   # Calculate distance of particle to all wells.
   X <-
-    data.frame(particle[1],
-               particle[2],
+    data.frame(particle["X"],
+               particle["Y"],
                well_fltrs$X,
                well_fltrs$Y,
                FLTR_NR = well_fltrs$FLTR_NR, row.names = NULL) %>% as.matrix()
@@ -40,8 +40,8 @@
   #   - at a distance < mindist
   # Select from these filters the filters with the smallest distance to the particle
   well_fltrs %<>% dplyr::mutate(fltr_length=BK_FLTR-OK_FLTR)
-  well_fltrs %<>% dplyr::filter(BK_FLTR+0.5*fltr_length >= particle[3] &
-                                OK_FLTR-0.5*fltr_length <= particle[3] &
+  well_fltrs %<>% dplyr::filter(BK_FLTR+0.5*fltr_length >= particle["Z"] &
+                                OK_FLTR-0.5*fltr_length <= particle["Z"] &
                                 distance <= maxdist) %>% dplyr::slice(which.min(distance))
   n <- nrow(well_fltrs)
   if (n >= 1) {

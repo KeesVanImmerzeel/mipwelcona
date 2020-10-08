@@ -2,7 +2,7 @@
 % Please edit documentation in R/mw_init.R
 \name{mw_init}
 \alias{mw_init}
-\title{Initialize streamline concentration table (tibble).}
+\title{Initialize base streamline concentration table.}
 \usage{
 mw_init(strm_lns, conc_l_lev, conc_l)
 }
@@ -14,20 +14,17 @@ mw_init(strm_lns, conc_l_lev, conc_l)
 \item{conc_l}{Concentration layers (RasterBrick).}
 }
 \value{
-tibble with the following variables (columns):
+table (tibble) with the following variables (columns):
 \itemize{
 \item SL_NR: Streamline number (integer)
-\item X: x-coordinate (numeric)
-\item Y: y-coordinate (numeric)
-\item Z: Z-coordinate (numeric)
 \item TIME: Time, days (numeric)
 \item DIST: Distance traveled since t=0 (meters) (numeric)
 \item CCONC: Concentration (conservative) (numeric)
-\item D_CONC: Change in concentration
+\item D_CCONC: Change in concentration (numeric)
 }
 }
 \description{
-Initialize streamline concentration table (tibble).
+Initialize base streamline concentration table.
 }
 \details{
 Add concentrations (conservative) at all locations (x,y,z) of streamline trajects and

@@ -1,15 +1,12 @@
-#' Initialize streamline concentration table (tibble).
+#' Initialize base streamline concentration table.
 #'
 #' @inheritParams .mw_conservative_conc
-#' @return tibble with the following variables (columns):
+#' @return table (tibble) with the following variables (columns):
 #' * SL_NR: Streamline number (integer)
-#' * X: x-coordinate (numeric)
-#' * Y: y-coordinate (numeric)
-#' * Z: Z-coordinate (numeric)
 #' * TIME: Time, days (numeric)
 #' * DIST: Distance traveled since t=0 (meters) (numeric)
 #' * CCONC: Concentration (conservative) (numeric)
-#' * D_CONC: Change in concentration
+#' * D_CCONC: Change in concentration (numeric)
 #' @details
 #' Add concentrations (conservative) at all locations (x,y,z) of streamline trajects and
 #' remove redundant records (no concentration change).
@@ -28,7 +25,6 @@ mw_init <- function(strm_lns, conc_l_lev, conc_l) {
       dplyr::filter(D_CCONC > 0 | is.na(D_CCONC) )
   }
   strm_lns$CCONC <- .mw_conservative_conc(strm_lns, conc_l_lev, conc_l)
-
   strm_lns %<>% dplyr::group_modify(.f) %>% dplyr::select(-c(X,Y,Z))
   return(strm_lns)
 }
