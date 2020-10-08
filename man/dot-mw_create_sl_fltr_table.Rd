@@ -18,11 +18,7 @@ dataframe with the following variables (columns):
 \itemize{
 \item SL_NR: Streamline number (integer)
 \item FLTR_NR: Filter number (integer)
-fname <- system.file("extdata","streamlines.iff",package="mipwelcona")
-strm_lns <- mw_read_streamlines(fname)
-fname <- system.file("extdata","well_filters.ipf",package="mipwelcona")
-well_fltrs <- mw_read_well_filters(fname)
-sl_fltr_table <- .mw_create_sl_fltr_table(strm_lns, well_fltrs)
+sl_fltr_table <- .mw_create_sl_fltr_table(strm_lns=chk_mw_read_streamlines, well_fltrs=chk_mw_read_well_filters, maxdist=100)
 }
 }
 \description{

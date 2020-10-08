@@ -3,8 +3,7 @@
 #' @param x Coordinates of points (x1,y1,x2,y2) (numeric)
 #' @return distance (numeric)
 # @examples
-#' x <- c(271877.5, 554247.5, 271910, 554210)
-#' .dist(x)
+#' .dist(c(271877.5, 554247.5, 271910, 554210))
 # @export
 .dist <- function(x) {
   sqrt((x[1]-x[3])^2 + (x[2]-x[4])^2)
@@ -19,9 +18,7 @@
 #' @return nearest well filter number (numeric)
 # @examples
 #' particle <- c(X=271877.5, Y=554247.5, Z=-41.237)
-#' fname <- system.file("extdata","well_filters.ipf",package="mipwelcona")
-#' well_fltrs <- mw_read_well_filters(fname)
-#' .nearest_well_fltr(particle, well_fltrs, maxdist = 100)
+#' .nearest_well_fltr(particle, well_fltrs=chk_mw_read_well_filters, maxdist = 100)
 # @export
 .nearest_well_fltr <- function(particle, well_fltrs, maxdist = 100) {
   FLTR_NR <- NA
@@ -60,11 +57,7 @@
 #' * SL_NR: Streamline number (integer)
 #' * FLTR_NR: Filter number (integer)
 # @examples
-#' fname <- system.file("extdata","streamlines.iff",package="mipwelcona")
-#' strm_lns <- mw_read_streamlines(fname)
-#' fname <- system.file("extdata","well_filters.ipf",package="mipwelcona")
-#' well_fltrs <- mw_read_well_filters(fname)
-#' sl_fltr_table <- .mw_create_sl_fltr_table(strm_lns, well_fltrs)
+#' sl_fltr_table <- .mw_create_sl_fltr_table(strm_lns=chk_mw_read_streamlines, well_fltrs=chk_mw_read_well_filters, maxdist=100)
 # @export
 .mw_create_sl_fltr_table <- function(strm_lns, well_fltrs, maxdist = 100){
   X <- strm_lns %>% dplyr::filter(TIME==0) %>% as.matrix()

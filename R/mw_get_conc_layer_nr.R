@@ -5,10 +5,7 @@
 #' @return Numbers of the concentration layer corresponding to all locations (x,y,z) of
 #'   streamline trajects (integer vector).
 # @examples
-#' fname <- system.file("extdata","streamlines.iff",package="mipwelcona")
-#' strm_lns <- mw_read_streamlines(fname)
-#' conc_l_lev <- mw_example_conc_layer_levels()
-#' x <- .mw_get_conc_layer_nr(strm_lns, conc_l_lev)
+#' x <- .mw_get_conc_layer_nr(strm_lns=chk_mw_read_streamlines, conc_l_lev=mw_example_conc_layer_levels())
 # @export
 .mw_get_conc_layer_nr <- function(strm_lns, conc_l_lev) {
   .f <- function(x) {

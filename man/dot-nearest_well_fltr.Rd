@@ -16,9 +16,7 @@
 \value{
 nearest well filter number (numeric)
 particle <- c(X=271877.5, Y=554247.5, Z=-41.237)
-fname <- system.file("extdata","well_filters.ipf",package="mipwelcona")
-well_fltrs <- mw_read_well_filters(fname)
-.nearest_well_fltr(particle, well_fltrs, maxdist = 100)
+.nearest_well_fltr(particle, well_fltrs=chk_mw_read_well_filters, maxdist = 100)
 }
 \description{
 Find the nearest well filter of a particle on a streamline.

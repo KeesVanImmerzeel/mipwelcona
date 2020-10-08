@@ -11,8 +11,7 @@
 }
 \value{
 distance (numeric)
-x <- c(271877.5, 554247.5, 271910, 554210)
-.dist(x)
+.dist(c(271877.5, 554247.5, 271910, 554210))
 }
 \description{
 Calculate the distance between two points.

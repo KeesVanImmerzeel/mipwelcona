@@ -13,13 +13,15 @@
 .mw_conc_fltr <-
   function(fltr_nr,
            sl_fltr_table,
-           conc_streamlines
-           ) {
-    sl_nrs <- sl_fltr_table %>% dplyr::filter(FLTR_NR == fltr_nr) %>% dplyr::select(SL_NR) %>% dplyr::pull(1)
+           conc_streamlines) {
+    sl_nrs <-
+      sl_fltr_table %>% dplyr::filter(FLTR_NR == fltr_nr) %>% dplyr::select(SL_NR) %>% dplyr::pull(1)
     if (length(sl_nrs) < 1) {
       return(NA)
     }
     conc_streamlines %<>% dplyr::filter(SL_NR %in% sl_nrs)
-    df <- conc_streamlines %>% dplyr::group_by(TIME) %>% dplyr::summarize(CONC=mean(CONC), .groups="drop")
-    return(cbind(FLTR_NR=fltr_nr,df))
+    df <-
+      conc_streamlines %>% dplyr::group_by(TIME) %>% dplyr::summarize(CONC =
+                                                                        mean(CONC), .groups = "drop")
+    return(cbind(FLTR_NR = fltr_nr, df))
   }

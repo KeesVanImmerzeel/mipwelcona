@@ -5,11 +5,7 @@
 #' @return Concentration (conservative) at all locations (x,y,z) of
 #'   streamline trajects (integer vector).
 # @examples
-#' fname <- system.file("extdata","streamlines.iff",package="mipwelcona")
-#' strm_lns <- mw_read_streamlines(fname)
-#' conc_l_lev <- mw_example_conc_layer_levels()
-#' conc_l <- mw_example_concentrations()
-#' x <- .mw_conservative_conc(strm_lns, conc_l_lev, conc_l)
+#' x <- .mw_conservative_conc(strm_lns=chk_mw_read_streamlines, conc_l_lev=mw_example_conc_layer_levels(), conc_l=mw_example_concentrations())
 # @export
 .mw_conservative_conc <- function(strm_lns, conc_l_lev, conc_l) {
   #x: (concentrations in layers, i); i=concentration layer number

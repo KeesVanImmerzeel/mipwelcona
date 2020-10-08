@@ -13,12 +13,7 @@
 #' * TIME: Time, days (numeric)
 #' * CONC: Concentration (numeric)
 # @examples
-# fname <- system.file("extdata","streamlines.iff",package="mipwelcona")
-# strm_lns <- mw_read_streamlines(fname)
-# conc_l <- mw_example_concentrations()
-# conc_l_lev <- mw_example_conc_layer_levels()
-# conc_strm_lns <- mw_init(strm_lns, conc_l_lev, conc_l)
-# x <- .mw_conc_streamlines(conc_strm_lns, times=c(1*365,5*365,10*365,25*365), processes=c("dispersion","decay", "retardation"), alpha=0.3, rho=3, labda=0.0001, retard=1)
+# x <- .mw_conc_streamlines(conc_strm_lns=chk_mw_init, times=c(1*365,5*365,10*365,25*365), processes=c("dispersion","decay", "retardation"), alpha=0.3, rho=3, labda=0.0001, retard=1)
 # @export
 .mw_conc_streamlines <-
   function(conc_strm_lns,
