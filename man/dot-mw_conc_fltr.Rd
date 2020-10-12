@@ -2,7 +2,7 @@
 % Please edit documentation in R/mw_conc_fltr.R
 \name{.mw_conc_fltr}
 \alias{.mw_conc_fltr}
-\title{Calculate concentrations on filter at times as specified in table created with \code{\link{.mw_conc_streamlines}}}
+\title{Calculate concentrations of filter at times as specified in table created with \code{\link{.mw_conc_streamlines}}}
 \usage{
 .mw_conc_fltr(fltr_nr, sl_fltr_table, conc_streamlines)
 }
@@ -22,5 +22,5 @@ Dataframe with the following variables (columns):
 }
 }
 \description{
-Calculate concentrations on filter at times as specified in table created with \code{\link{.mw_conc_streamlines}}
+Calculate concentrations of filter at times as specified in table created with \code{\link{.mw_conc_streamlines}}
 }

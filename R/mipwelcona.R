@@ -25,6 +25,7 @@
 #' @importFrom dplyr rename
 #' @importFrom dplyr bind_rows
 #' @importFrom dplyr pull
+#' @importFrom dplyr relocate
 #'
 #' @importFrom magrittr %<>%
 #' @importFrom magrittr %>%
@@ -36,6 +37,8 @@
 #' @importFrom raster extract
 #'
 #' @importFrom stats approx
+#' @importFrom stats weighted.mean
+#'
 #' @importFrom lmomco vec2par
 #' @importFrom lmomco cdfpe3
 #'
