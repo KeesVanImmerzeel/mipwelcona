@@ -31,11 +31,13 @@
            alpha = 0.3,
            rho = 3) {
     conc_strm_lns %<>%
-      dplyr::mutate(b = TIME / rho) %>%
-      dplyr::mutate(a = DIST * (1 - 1 / rho) / (TIME * 2 * alpha)) %>%
-      dplyr::mutate(n = DIST * ((1 - 1 / rho) ^ 2) / (2 * alpha)) %>%
-      dplyr::mutate(sigma = sqrt(n) / a) %>%
-      dplyr::mutate(gamma = 2 / sqrt(n)) %>%
+      dplyr::mutate(
+        b = TIME / rho,
+        a = DIST * (1 - 1 / rho) / (TIME * 2 * alpha),
+        n = DIST * ((1 - 1 / rho) ^ 2) / (2 * alpha),
+        sigma = sqrt(n) / a,
+        gamma = 2 / sqrt(n)
+      ) %>%
       dplyr::select(-c(a, n))
     return(conc_strm_lns)
   }
