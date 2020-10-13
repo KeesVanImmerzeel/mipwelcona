@@ -1,6 +1,6 @@
 #' Calculate concentrations of filter at times as specified in table created with \code{\link{.mw_conc_streamlines}}
 #'
-#' @param fltr_nr (unique) Well number (numeric)
+#' @param fltr_nr (unique) Well number (numeric).
 #' @param sl_fltr_table Dataframe as created with the function \code{\link{.mw_create_sl_fltr_table}}.
 #' @param conc_streamlines Table (tibble) as created with the function \code{\link{mw_init}}.
 #' @return Dataframe with the following variables (columns):
