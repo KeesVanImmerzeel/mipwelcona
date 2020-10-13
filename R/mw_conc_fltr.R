@@ -15,7 +15,7 @@
            sl_fltr_table,
            conc_streamlines) {
     sl_nrs <-
-      sl_fltr_table %>% dplyr::filter(FLTR_NR == fltr_nr) %>% dplyr::select(SL_NR) %>% dplyr::pull(1)
+      sl_fltr_table %>% dplyr::filter(FLTR_NR == fltr_nr) %>% dplyr::select(-c(FLTR_NR)) %>% dplyr::pull(1)
     if (length(sl_nrs) < 1) {
       return(NA)
     }

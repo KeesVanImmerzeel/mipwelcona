@@ -38,6 +38,13 @@ chk_mw_conc_fltr <- .mw_conc_fltr(
   conc_streamlines = chk_mw_conc_streamlines
 )
 
+sl_fltr_table <- chk_sl_fltr_table
+sl_fltr_table[98,]$FLTR_NR <- 2
+sl_fltr_table[99,]$FLTR_NR <- 2
+sl_fltr_table[100,]$FLTR_NR <- 2
+chk_mw_conc_well <- .mw_conc_well( well_nr=1, well_fltrs=chk_mw_read_well_filters,
+                                   sl_fltr_table, conc_streamlines=chk_mw_conc_streamlines )
+
 ## Save internal objects
 usethis::use_data(chk_mw_read_streamlines,
                   chk_mw_read_well_filters,
@@ -45,5 +52,6 @@ usethis::use_data(chk_mw_read_streamlines,
                   chk_mw_init,
                   chk_mw_conc_streamlines,
                   chk_mw_conc_fltr,
+                  chk_mw_conc_well,
                   overwrite = TRUE,
                   internal = TRUE)

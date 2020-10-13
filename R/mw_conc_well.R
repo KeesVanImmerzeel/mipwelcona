@@ -1,3 +1,6 @@
+# Helper function to remove NA's from a list
+na.omit.list <- function(y) { return(y[!sapply(y, function(x) all(is.na(x)))]) }
+
 #' Calculate concentrations of well at times as specified in table created with \code{\link{.mw_conc_streamlines}}
 #'
 #' @param well_nr (unique) Well number (numeric)
@@ -8,27 +11,43 @@
 #' * WL_NR: (unique) Well number (numeric)
 #' * TIME: Time, days (numeric)
 #' * CONC: Concentration (numeric)
+# Example with fake data
 # @examples
-# x <- .mw_conc_well( well_nr=1, chk_mw_read_well_filters, chk_sl_fltr_table,
-#                     chk_mw_conc_streamlines )
+# sl_fltr_table <- chk_sl_fltr_table
+# sl_fltr_table[98,]$FLTR_NR <- 2
+# sl_fltr_table[99,]$FLTR_NR <- 2
+# sl_fltr_table[100,]$FLTR_NR <- 2
+# x <- .mw_conc_well( well_nr=1, well_fltrs=chk_mw_read_well_filters, sl_fltr_table,
+#                     conc_streamlines=chk_mw_conc_streamlines )
 # @export
 .mw_conc_well <-
   function(well_nr,
            well_fltrs,
            sl_fltr_table,
            conc_streamlines) {
-    well_fltrs <- well_fltrs %>% dplyr::filter(WL_NR == well_nr)
+    well_fltrs %<>%  dplyr::filter(WL_NR == well_nr) %>% dplyr::select(c(FLTR_NR, WL_NR, Q_FLTR))
     if (nrow(well_fltrs) < 1) {
       return(NA)
     }
     conc <-
-      purrrlyr::by_row(well_fltrs,
-                       ..f = .mw_conc_fltr,
-                       sl_fltr_table ,
-                       conc_streamlines ,
-                       .collate = "rows") %>% dplyr::select(FLTR_NR, Q_FLTR, TIME, CONC) %>%
+      apply(
+        well_fltrs$FLTR_NR %>% as.array(),
+        1,
+        .mw_conc_fltr,
+        sl_fltr_table,
+        conc_streamlines
+      )
+    conc %<>% na.omit.list() # Remove results when no concentrations are available
+    if (length(conc)==0) {
+      return(NA)
+    }
+    conc %<>%
+      data.table::rbindlist() %>%
+      dplyr::left_join(well_fltrs, by = "FLTR_NR") %>%
       dplyr::group_by(TIME) %>%
-      dplyr::summarise(WCONC = weighted.mean(CONC, Q_FLTR)) %>% dplyr::mutate(WL_NR=well_nr) %>% dplyr::relocate(WL_NR)
-
+      dplyr::summarise(CONC = weighted.mean(CONC, Q_FLTR), .groups =
+                         "drop") %>%
+      dplyr::mutate(WL_NR = well_nr) %>%
+      dplyr::relocate(WL_NR)
     return(conc)
   }

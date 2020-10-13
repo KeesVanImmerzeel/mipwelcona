@@ -23,7 +23,8 @@ Imports:
     rgdal,
     stats,
     lmomco,
-    purrrlyr
+    purrrlyr,
+    data.table
 Depends: 
     R (>= 2.10)
 Suggests: 

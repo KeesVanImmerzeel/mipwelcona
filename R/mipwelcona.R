@@ -26,6 +26,7 @@
 #' @importFrom dplyr bind_rows
 #' @importFrom dplyr pull
 #' @importFrom dplyr relocate
+#' @importFrom dplyr left_join
 #'
 #' @importFrom magrittr %<>%
 #' @importFrom magrittr %>%
@@ -43,4 +44,6 @@
 #' @importFrom lmomco cdfpe3
 #'
 #' @importFrom purrrlyr by_row
+#'
+#' @importFrom data.table rbindlist
 NULL
