@@ -9,6 +9,7 @@ na.omit.list <- function(y) { return(y[!sapply(y, function(x) all(is.na(x)))]) }
 #' @inheritParams .nearest_well_fltr
 #' @return Dataframe with the following variables (columns):
 #' * WL_NR: (unique) Well number (numeric)
+#' * Q_WL: Extraction (m3/day; negative is extraction; positive is infiltration) (numeric)
 #' * TIME: Time, days (numeric)
 #' * CONC: Concentration (numeric)
 # Example with fake data
@@ -48,6 +49,8 @@ na.omit.list <- function(y) { return(y[!sapply(y, function(x) all(is.na(x)))]) }
       dplyr::summarise(CONC = weighted.mean(CONC, Q_FLTR), .groups =
                          "drop") %>%
       dplyr::mutate(WL_NR = well_nr) %>%
+      dplyr::mutate(Q_WL=sum(well_fltrs$Q_FLTR)) %>%
+      dplyr::relocate(Q_WL) %>%
       dplyr::relocate(WL_NR)
     return(conc)
   }

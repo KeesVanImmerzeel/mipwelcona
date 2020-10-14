@@ -7,7 +7,7 @@
 .mw_conc_fltr(fltr_nr, sl_fltr_table, conc_streamlines)
 }
 \arguments{
-\item{fltr_nr}{(unique) Well number (numeric)}
+\item{fltr_nr}{(unique) Well number (numeric).}
 
 \item{sl_fltr_table}{Dataframe as created with the function \code{\link{.mw_create_sl_fltr_table}}.}
 
