@@ -13,7 +13,7 @@
 
 \item{sl_fltr_table}{Dataframe as created with the function \code{\link{mw_create_sl_fltr_table}}.}
 
-\item{conc_streamlines}{Table (tibble) as created with the function \code{\link{mw_init}}.}
+\item{conc_streamlines}{Table (tibble) as created with the function \code{\link{mw_conc_init}}.}
 }
 \value{
 Dataframe with the following variables (columns):

@@ -27,7 +27,7 @@ Then load the package with:
 - `mw_read_well_filters()`: Read wells from *.ipf file;
 - `mw_example_concentrations()`: Initialise example concentrations in the subsoil; 
 - `mw_example_conc_layer_levels()`: Initialise example concentration layer levels;
-- `mw_init()`: Initialize streamline concentration table;
+- `mw_conc_init()`: Initialize streamline concentration table;
 - `mw_create_sl_fltr_table()`: Create table with indices linking the streamlines to well filters.
 
 ## Get help
@@ -74,7 +74,7 @@ The concentration layers are separated at *levels* that are also with a `RasterB
 `conc_l <- mw_example_concentrations()`
 
 `# Initialize base streamline concentration table.`
-`conc_strm_lns <- mw_init(strm_lns, conc_l_lev, conc_l)`
+`conc_strm_lns <- mw_conc_init(strm_lns, conc_l_lev, conc_l)`
 
 `# Create table with indices linking the streamlines to well filters.`
 `# sl_fltr_table <- mw_create_sl_fltr_table(strm_lns, well_fltrs, maxdist=100)`

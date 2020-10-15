@@ -2,7 +2,7 @@
 #'
 #' @param fltr_nr (unique) Well number (numeric).
 #' @param sl_fltr_table Dataframe as created with the function \code{\link{mw_create_sl_fltr_table}}.
-#' @param conc_streamlines Table (tibble) as created with the function \code{\link{mw_init}}.
+#' @param conc_streamlines Table (tibble) as created with the function \code{\link{mw_conc_init}}.
 #' @return Dataframe with the following variables (columns):
 #' * FLTR_NR: Streamline number (integer)
 #' * TIME: Time, days (numeric)

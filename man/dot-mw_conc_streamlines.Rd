@@ -15,7 +15,7 @@
 )
 }
 \arguments{
-\item{conc_strm_lns}{Table (tibble) with output of function \code{\link{mw_init}}}
+\item{conc_strm_lns}{Table (tibble) with output of function \code{\link{mw_conc_init}}}
 
 \item{times}{Times at which to calculate concentrations (days) (numeric)}
 

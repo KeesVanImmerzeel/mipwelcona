@@ -18,12 +18,12 @@ chk_sl_fltr_table <- mw_create_sl_fltr_table(chk_mw_read_streamlines, chk_mw_rea
   conc_l <- mw_example_concentrations()
 
 #Initialize base streamline concentration table.
-chk_mw_init <- mw_init(chk_mw_read_streamlines, conc_l_lev, conc_l)
+chk_mw_conc_init <- mw_conc_init(chk_mw_read_streamlines, conc_l_lev, conc_l)
 
 # Calculate concentrations on streamlines at specified times.
 chk_mw_conc_streamlines <-
   .mw_conc_streamlines(
-    conc_strm_lns=chk_mw_init,
+    conc_strm_lns=chk_mw_conc_init,
     times = c(0, 1 * 365, 5 * 365, 10 * 365, 25 * 365),
     processes = c("dispersion","decay", "retardation"),
     alpha = 0.3,
@@ -49,7 +49,7 @@ chk_mw_conc_well <- .mw_conc_well( well_nr=1, well_fltrs=chk_mw_read_well_filter
 usethis::use_data(chk_mw_read_streamlines,
                   chk_mw_read_well_filters,
                   chk_sl_fltr_table,
-                  chk_mw_init,
+                  chk_mw_conc_init,
                   chk_mw_conc_streamlines,
                   chk_mw_conc_fltr,
                   chk_mw_conc_well,
