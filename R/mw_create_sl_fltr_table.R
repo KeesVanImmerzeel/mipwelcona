@@ -56,10 +56,14 @@
 #' @return dataframe with the following variables (columns):
 #' * SL_NR: Streamline number (integer)
 #' * FLTR_NR: Filter number (integer)
-# @examples
-#' sl_fltr_table <- .mw_create_sl_fltr_table(strm_lns=chk_mw_read_streamlines, well_fltrs=chk_mw_read_well_filters, maxdist=100)
-# @export
-.mw_create_sl_fltr_table <- function(strm_lns, well_fltrs, maxdist = 100){
+#' @examples
+#' fname <- system.file("extdata","streamlines.iff",package="mipwelcona")
+#' strm_lns <- mw_read_streamlines(fname)
+#' fname <- system.file("extdata","well_filters.ipf",package="mipwelcona")
+#' well_fltrs <- mw_read_well_filters(fname)
+#' sl_fltr_table <- mw_create_sl_fltr_table(strm_lns, well_fltrs, maxdist=100)
+#' @export
+mw_create_sl_fltr_table <- function(strm_lns, well_fltrs, maxdist = 100){
   X <- strm_lns %>% dplyr::filter(TIME==0) %>% as.matrix()
   fltr_nrs <- apply(X,1,.nearest_well_fltr,well_fltrs, maxdist)
   df <- data.frame(SL_NR=X[,"SL_NR"], FLTR_NR=fltr_nrs)

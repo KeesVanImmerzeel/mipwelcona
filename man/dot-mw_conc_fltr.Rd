@@ -9,7 +9,7 @@
 \arguments{
 \item{fltr_nr}{(unique) Well number (numeric).}
 
-\item{sl_fltr_table}{Dataframe as created with the function \code{\link{.mw_create_sl_fltr_table}}.}
+\item{sl_fltr_table}{Dataframe as created with the function \code{\link{mw_create_sl_fltr_table}}.}
 
 \item{conc_streamlines}{Table (tibble) as created with the function \code{\link{mw_init}}.}
 }

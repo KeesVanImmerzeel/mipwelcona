@@ -11,7 +11,7 @@
 
 \item{well_fltrs}{Data frame with wells as read from *.ipf file by the function mw_read_well_filters()}
 
-\item{sl_fltr_table}{Dataframe as created with the function \code{\link{.mw_create_sl_fltr_table}}.}
+\item{sl_fltr_table}{Dataframe as created with the function \code{\link{mw_create_sl_fltr_table}}.}
 
 \item{conc_streamlines}{Table (tibble) as created with the function \code{\link{mw_init}}.}
 }

@@ -10,7 +10,7 @@ fname <-
   system.file("extdata", "well_filters.ipf", package = "mipwelcona")
 chk_mw_read_well_filters <- mw_read_well_filters(fname)
 
-chk_sl_fltr_table <- .mw_create_sl_fltr_table(chk_mw_read_streamlines, chk_mw_read_well_filters)
+chk_sl_fltr_table <- mw_create_sl_fltr_table(chk_mw_read_streamlines, chk_mw_read_well_filters)
 
   # Read example concentration layer levels (8 rasters layers).
   conc_l_lev <- mw_example_conc_layer_levels()
