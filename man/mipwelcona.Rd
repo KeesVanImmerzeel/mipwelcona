@@ -20,5 +20,6 @@ This package exports the following functions:
 \item \code{\link{mw_example_conc_layer_levels}}
 \item \code{\link{mw_example_base_streamline_conc_table}}
 \item \code{\link{mw_example_conc_streamlines}}
+\item \code{\link{mw_example_sl_fltr_table}}
 }
 }

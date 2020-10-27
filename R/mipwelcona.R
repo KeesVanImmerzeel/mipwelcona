@@ -15,6 +15,7 @@
 #' * \code{\link{mw_example_conc_layer_levels}}
 #' * \code{\link{mw_example_base_streamline_conc_table}}
 #' * \code{\link{mw_example_conc_streamlines}}
+#' * \code{\link{mw_example_sl_fltr_table}}
 #'
 #' @docType package
 #' @name mipwelcona

@@ -36,7 +36,7 @@ Functions to create example data:
 - `mw_example_concentrations()`: Initialise example concentrations in the subsoil; 
 - `mw_example_base_streamline_conc_table()`: Initialise example base streamline concentration table as created with the function `mw_conc_init()`; 
 - `mw_example_conc_streamlines()`: Initialise example concentrations on streamlines at specified times as created with function `mw_conc_streamlines()`.
-
+- `mw_example_sl_fltr_table()`: Initiate example table with indices linking the streamlines to well filters as created with function `mw_create_sl_fltr_table()`.
 
 ## Get help
 
