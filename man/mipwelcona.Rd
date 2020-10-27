@@ -12,11 +12,12 @@ This package exports the following functions:
 \itemize{
 \item \code{\link{mw_read_streamlines}}
 \item \code{\link{mw_read_well_filters}}
-\item \code{\link{mw_example_concentrations}}
-\item \code{\link{mw_example_conc_layer_levels}}
 \item \code{\link{mw_conc_init}}
 \item \code{\link{mw_conc_streamlines}}
 \item \code{\link{mw_create_sl_fltr_table}}
 \item \code{\link{mw_conc_filters}}
+\item \code{\link{mw_example_concentrations}}
+\item \code{\link{mw_example_conc_layer_levels}}
+\item \code{\link{mw_example_base_streamline_conc_table}}
 }
 }

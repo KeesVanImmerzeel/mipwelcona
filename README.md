@@ -25,12 +25,16 @@ Then load the package with:
 ## Functions in this package
 - `mw_read_streamlines()`: Read streamlines from *.iff file;
 - `mw_read_well_filters()`: Read wells from *.ipf file;
-- `mw_example_conc_layer_levels()`: Initialise example concentration layer levels;
-- `mw_example_concentrations()`: Initialise example concentrations in the subsoil; 
-- `mw_conc_init()`: Initialize streamline concentration table;
+- `mw_conc_init()`: Initialize base streamline concentration table;
 - `mw_conc_streamlines()`: Calculate concentrations on streamlines at specified times.
 - `mw_create_sl_fltr_table()`: Create table with indices linking the streamlines to well filters.
 - `mw_conc_filters()`: Calculate concentrations (mixed) of selected filters at times as specified in table created     with `mw_conc_streamlines()`
+
+Functions to create example data:
+
+- `mw_example_conc_layer_levels()`: Initialise example concentration layer levels;
+- `mw_example_concentrations()`: Initialise example concentrations in the subsoil; 
+- `mw_example_base_streamline_conc_table()`: Initialise example base streamline concentration table; 
 
 ## Get help
 
