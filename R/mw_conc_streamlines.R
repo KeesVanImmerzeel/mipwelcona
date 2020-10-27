@@ -117,8 +117,10 @@
 #' * SL_NR: Streamline number (integer)
 #' * TIME: Time, days (numeric)
 #' * CONC: Concentration (numeric)
-# @examples
-# x <- mw_conc_streamlines(conc_strm_lns=chk_mw_conc_init, times=c(1*365,5*365,10*365,25*365), processes=c("dispersion","decay", "retardation"), alpha=0.3, rho=3, labda=0.0001, retard=1)
+#' @examples
+#' conc_strm_lns <- mw_example_base_streamline_conc_table()
+#' x <- mw_conc_streamlines(conc_strm_lns, times=c(1*365,5*365,10*365,25*365), processes=c("dispersion","decay", "retardation"), alpha=0.3, rho=3, labda=0.0001, retard=1)
+#' head(x)
 #' @export
 mw_conc_streamlines <-
   function(conc_strm_lns,

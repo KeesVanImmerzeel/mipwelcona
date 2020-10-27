@@ -41,3 +41,8 @@ tibble with the following variables (columns):
 \description{
 Calculate concentrations on streamlines at specified times.
 }
+\examples{
+conc_strm_lns <- mw_example_base_streamline_conc_table()
+x <- mw_conc_streamlines(conc_strm_lns, times=c(1*365,5*365,10*365,25*365), processes=c("dispersion","decay", "retardation"), alpha=0.3, rho=3, labda=0.0001, retard=1)
+head(x)
+}
