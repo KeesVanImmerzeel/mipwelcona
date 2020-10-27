@@ -1,6 +1,3 @@
-# Helper function to remove NA's from a list
-na.omit.list <- function(y) { return(y[!sapply(y, function(x) all(is.na(x)))]) }
-
 #' Calculate concentrations of well at times as specified in table created with \code{\link{.mw_conc_streamlines}}
 #'
 #' @param well_nr (unique) Well number (numeric)

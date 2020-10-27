@@ -16,5 +16,6 @@ This package exports the following functions:
 \item \code{\link{mw_example_conc_layer_levels}}
 \item \code{\link{mw_conc_init}}
 \item \code{\link{mw_create_sl_fltr_table}}
+\item \code{\link{mw_conc_filters}}
 }
 }

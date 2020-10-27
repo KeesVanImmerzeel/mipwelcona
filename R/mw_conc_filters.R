@@ -16,10 +16,10 @@ na.omit.list <- function(y) { return(y[!sapply(y, function(x) all(is.na(x)))]) }
 # sl_fltr_table[98,]$FLTR_NR <- 2
 # sl_fltr_table[99,]$FLTR_NR <- 2
 # sl_fltr_table[100,]$FLTR_NR <- 2
-# x <- .mw_conc_filters( fltr_nrs=c(1,2), well_fltrs=chk_mw_read_well_filters, sl_fltr_table=chk_sl_fltr_table,
+# x <- mw_conc_filters( fltr_nrs=c(1,2), well_fltrs=chk_mw_read_well_filters, sl_fltr_table=chk_sl_fltr_table,
 #                     conc_streamlines=chk_mw_conc_streamlines )
-# @export
-.mw_conc_filters <-
+#' @export
+mw_conc_filters <-
   function(fltr_nrs,
            well_fltrs,
            sl_fltr_table,

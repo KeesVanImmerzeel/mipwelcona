@@ -29,6 +29,7 @@ Then load the package with:
 - `mw_example_conc_layer_levels()`: Initialise example concentration layer levels;
 - `mw_conc_init()`: Initialize streamline concentration table;
 - `mw_create_sl_fltr_table()`: Create table with indices linking the streamlines to well filters.
+- `mw_conc_filters()`: Calculate concentrations (mixed) of selected filters at times as specified in table created     with `mw_conc_streamlines()`
 
 ## Get help
 
