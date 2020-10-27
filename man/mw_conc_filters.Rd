@@ -26,3 +26,12 @@ Dataframe with the following variables (columns):
 \description{
 Calculate concentrations (mixed) of selected filters at times as specified in table created with \code{\link{mw_conc_streamlines}}
 }
+\examples{
+fname <- system.file("extdata","well_filters.ipf",package="mipwelcona")
+well_fltrs <- mw_read_well_filters(fname)
+sl_fltr_table <- mw_example_sl_fltr_table()
+conc_streamlines <- mw_example_conc_streamlines()
+sl_fltr_table <- mw_example_sl_fltr_table()
+conc <- mw_conc_filters( fltr_nrs=c(1,2), well_fltrs, sl_fltr_table, conc_streamlines )
+head(conc)
+}

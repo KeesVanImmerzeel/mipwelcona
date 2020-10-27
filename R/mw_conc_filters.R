@@ -7,14 +7,14 @@
 #' * Q: Extraction (m3/day; negative is extraction; positive is infiltration) (numeric)
 #' * TIME: Time, days (numeric)
 #' * CONC: Concentration (numeric)
-# Example with fake data
-# @examples
-# sl_fltr_table <- chk_sl_fltr_table
-# sl_fltr_table[98,]$FLTR_NR <- 2
-# sl_fltr_table[99,]$FLTR_NR <- 2
-# sl_fltr_table[100,]$FLTR_NR <- 2
-# x <- mw_conc_filters( fltr_nrs=c(1,2), well_fltrs=chk_mw_read_well_filters, sl_fltr_table=chk_sl_fltr_table,
-#                     conc_streamlines=chk_mw_conc_streamlines )
+#' @examples
+#' fname <- system.file("extdata","well_filters.ipf",package="mipwelcona")
+#' well_fltrs <- mw_read_well_filters(fname)
+#' sl_fltr_table <- mw_example_sl_fltr_table()
+#' conc_streamlines <- mw_example_conc_streamlines()
+#' sl_fltr_table <- mw_example_sl_fltr_table()
+#' conc <- mw_conc_filters( fltr_nrs=c(1,2), well_fltrs, sl_fltr_table, conc_streamlines )
+#' head(conc)
 #' @export
 mw_conc_filters <-
   function(fltr_nrs,

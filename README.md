@@ -97,7 +97,11 @@ The concentration layers are separated at *levels* that are also with a `RasterB
 `# sl_fltr_table <- mw_create_sl_fltr_table(strm_lns, well_fltrs, maxdist=100)`
 
 #### Step 8: Calculate concentrations (mixed) of selected filters.
-conc <- `mw_conc_filters( fltr_nrs=c(1,2), well_fltrs, sl_fltr_table, conc_streamlines )`
+Overrule previously created table first for this example. Normally, you wouln't do this!
+
+`sl_fltr_table <- mw_example_sl_fltr_table()` 
+
+`conc <- mw_conc_filters( fltr_nrs=c(1,2), well_fltrs, sl_fltr_table, conc_streamlines )`
 
 # References
 
