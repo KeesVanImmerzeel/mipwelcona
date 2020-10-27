@@ -25,10 +25,10 @@ Then load the package with:
 ## Functions in this package
 - `mw_read_streamlines()`: Read streamlines from *.iff file;
 - `mw_read_well_filters()`: Read wells from *.ipf file;
-- `mw_example_concentrations()`: Initialise example concentrations in the subsoil; 
 - `mw_example_conc_layer_levels()`: Initialise example concentration layer levels;
+- `mw_example_concentrations()`: Initialise example concentrations in the subsoil; 
 - `mw_conc_init()`: Initialize streamline concentration table;
-- `mw_conc_streamlines(): Calculate concentrations on streamlines at specified times.
+- `mw_conc_streamlines()`: Calculate concentrations on streamlines at specified times.
 - `mw_create_sl_fltr_table()`: Create table with indices linking the streamlines to well filters.
 - `mw_conc_filters()`: Calculate concentrations (mixed) of selected filters at times as specified in table created     with `mw_conc_streamlines()`
 
@@ -61,25 +61,37 @@ The concentration layers are separated at *levels* that are also with a `RasterB
 
 ## Example work flow
 
-`# Read streamlines.`
+#### Step 1: read streamlines.
 `fname <- system.file("extdata","streamlines.iff",package="mipwelcona")`
+
 `strm_lns <- mw_read_streamlines(fname)`
 
-`# Read well filters.`
+#### Step 2: Read well filters.
 `fname <- system.file("extdata","well_filters.ipf",package="mipwelcona")`
+
 `well_fltrs <- mw_read_well_filters(fname)`
 
-`# Read concentration layer levels (8 rasters layers).`
+#### Step 3: Create concentration layer levels 
+(8 example rasters layers are read in this case).
+
 `conc_l_lev <- mw_example_conc_layer_levels()`
 
-`# Read Initial concentrations of different layers in the subsoil (9 raster layers).`
+#### Step 4: Create Initial concentrations of different layers in the subsoil 
+(9 example rasters layers are read in this case).
+
 `conc_l <- mw_example_concentrations()`
 
-`# Initialize base streamline concentration table.`
+#### Step 5: Initialize base streamline concentration table.
 `conc_strm_lns <- mw_conc_init(strm_lns, conc_l_lev, conc_l)`
 
-`# Create table with indices linking the streamlines to well filters.`
+#### Step 6: Calculate concentrations on streamlines at specified times.
+`conc_streamlines <- mw_conc_streamlines(conc_strm_lns, times=c(1*365,5*365,10*365,25*365), processes=c("dispersion","decay", "retardation"), alpha=0.3, rho=3, labda=0.0001, retard=1)`
+
+#### Step 7: Create table with indices linking the streamlines to well filters.
 `# sl_fltr_table <- mw_create_sl_fltr_table(strm_lns, well_fltrs, maxdist=100)`
+
+#### Step 8: Calculate concentrations (mixed) of selected filters.
+conc <- `mw_conc_filters( fltr_nrs=c(1,2), well_fltrs, sl_fltr_table, conc_streamlines )`
 
 # References
 

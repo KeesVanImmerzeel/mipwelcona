@@ -31,7 +31,7 @@ chk_mw_conc_streamlines <-
     labda = 0.0001
   )
 
-#  Calculate concentrations on filter at times as specified in table created with \code{\link{.mw_conc_streamlines}}
+#  Calculate concentrations on filter at times as specified in table created with \code{\link{mw_conc_streamlines}}
 chk_mw_conc_fltr <- .mw_conc_fltr(
   fltr_nr = 1,
   sl_fltr_table = chk_sl_fltr_table,

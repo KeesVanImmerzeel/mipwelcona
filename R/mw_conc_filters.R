@@ -1,6 +1,3 @@
-# Helper function to remove NA's from a list
-na.omit.list <- function(y) { return(y[!sapply(y, function(x) all(is.na(x)))]) }
-
 #' Calculate concentrations (mixed) of selected filters at times as specified in table created with \code{\link{mw_conc_streamlines}}
 #'
 #' @param fltr_nrs (unique) Well numbers (numeric vector).
