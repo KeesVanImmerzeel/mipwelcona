@@ -34,7 +34,9 @@ Functions to create example data:
 
 - `mw_example_conc_layer_levels()`: Initialise example concentration layer levels;
 - `mw_example_concentrations()`: Initialise example concentrations in the subsoil; 
-- `mw_example_base_streamline_conc_table()`: Initialise example base streamline concentration table; 
+- `mw_example_base_streamline_conc_table()`: Initialise example base streamline concentration table as created with the function `mw_conc_init()`; 
+- `mw_example_conc_streamlines()`: Initialise example concentrations on streamlines at specified times as created with function `mw_conc_streamlines()`.
+
 
 ## Get help
 

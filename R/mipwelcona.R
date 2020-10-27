@@ -14,6 +14,7 @@
 #' * \code{\link{mw_example_concentrations}}
 #' * \code{\link{mw_example_conc_layer_levels}}
 #' * \code{\link{mw_example_base_streamline_conc_table}}
+#' * \code{\link{mw_example_conc_streamlines}}
 #'
 #' @docType package
 #' @name mipwelcona
