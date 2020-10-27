@@ -1,5 +1,5 @@
-test_that(".mw_conc_streamlines() results in previous created object.", {
-  expect_equal( .mw_conc_streamlines(
+test_that("mw_conc_streamlines() results in previous created object.", {
+  expect_equal( mw_conc_streamlines(
     chk_mw_conc_init,
     times = c(0, 1 * 365, 5 * 365, 10 * 365, 25 * 365),
     processes = c("dispersion","decay", "retardation"),

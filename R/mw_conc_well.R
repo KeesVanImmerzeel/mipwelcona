@@ -1,4 +1,4 @@
-#' Calculate concentrations of well at times as specified in table created with \code{\link{.mw_conc_streamlines}}
+#' Calculate concentrations of well at times as specified in table created with \code{\link{mw_conc_streamlines}}
 #'
 #' @param well_nr (unique) Well number (numeric)
 #' @inheritParams mw_read_well_filters

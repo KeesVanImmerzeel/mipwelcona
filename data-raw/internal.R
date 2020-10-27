@@ -22,7 +22,7 @@ chk_mw_conc_init <- mw_conc_init(chk_mw_read_streamlines, conc_l_lev, conc_l)
 
 # Calculate concentrations on streamlines at specified times.
 chk_mw_conc_streamlines <-
-  .mw_conc_streamlines(
+  mw_conc_streamlines(
     conc_strm_lns=chk_mw_conc_init,
     times = c(0, 1 * 365, 5 * 365, 10 * 365, 25 * 365),
     processes = c("dispersion","decay", "retardation"),

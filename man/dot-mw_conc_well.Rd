@@ -2,7 +2,7 @@
 % Please edit documentation in R/mw_conc_well.R
 \name{.mw_conc_well}
 \alias{.mw_conc_well}
-\title{Calculate concentrations of well at times as specified in table created with \code{\link{.mw_conc_streamlines}}}
+\title{Calculate concentrations of well at times as specified in table created with \code{\link{mw_conc_streamlines}}}
 \usage{
 .mw_conc_well(well_nr, well_fltrs, sl_fltr_table, conc_streamlines)
 }
@@ -25,5 +25,5 @@ Dataframe with the following variables (columns):
 }
 }
 \description{
-Calculate concentrations of well at times as specified in table created with \code{\link{.mw_conc_streamlines}}
+Calculate concentrations of well at times as specified in table created with \code{\link{mw_conc_streamlines}}
 }

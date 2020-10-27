@@ -2,7 +2,7 @@
 % Please edit documentation in R/mw_conc_filters.R
 \name{mw_conc_filters}
 \alias{mw_conc_filters}
-\title{Calculate concentrations (mixed) of selected filters at times as specified in table created with \code{\link{.mw_conc_streamlines}}}
+\title{Calculate concentrations (mixed) of selected filters at times as specified in table created with \code{\link{mw_conc_streamlines}}}
 \usage{
 mw_conc_filters(fltr_nrs, well_fltrs, sl_fltr_table, conc_streamlines)
 }
@@ -24,5 +24,5 @@ Dataframe with the following variables (columns):
 }
 }
 \description{
-Calculate concentrations (mixed) of selected filters at times as specified in table created with \code{\link{.mw_conc_streamlines}}
+Calculate concentrations (mixed) of selected filters at times as specified in table created with \code{\link{mw_conc_streamlines}}
 }
