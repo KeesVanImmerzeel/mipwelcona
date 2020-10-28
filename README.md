@@ -1,4 +1,4 @@
-# Package "mipwelcona"
+# Package *mipwelcona*
 
 <!-- badges: start -->
 <!-- badges: end -->
@@ -7,8 +7,8 @@ The package `mipwelcona` can be used to calculate the development of the concent
 
 * streamline calculations (backwards from well screens) in a [MIPWA](https://oss.deltares.nl/web/imod/mipwa-showcase) groundwater model;
 * Initial concentrations in specified layers;
-* Levels of concentration layer levels; 
-* Specified parameters for retardation and decay.
+* Levels of concentration layers; 
+* Parameters of different processes.
 
 This package is a further development of the program [WELCONA](https://edepot.wur.nl/10147).
 
@@ -78,12 +78,12 @@ The concentration layers are separated at *levels* that are also with a `RasterB
 `well_fltrs <- mw_read_well_filters(fname)`
 
 #### Step 3: Create concentration layer levels 
-(8 example rasters layers are read in this case).
+(8 example rasters layers in this case).
 
 `conc_l_lev <- mw_example_conc_layer_levels()`
 
 #### Step 4: Create Initial concentrations of different layers in the subsoil 
-(9 example rasters layers are read in this case).
+(9 example rasters layers in this case).
 
 `conc_l <- mw_example_concentrations()`
 

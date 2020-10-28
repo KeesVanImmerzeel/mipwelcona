@@ -3,12 +3,27 @@
 \docType{package}
 \name{mipwelcona}
 \alias{mipwelcona}
-\title{mipwelcona: calculate the development of the concentrations of solvents in pumped groundwater..}
+\title{mipwelcona: calculate the development of the concentrations of solvents in pumped groundwater.}
 \description{
-This package exports no sample data sets/objects:
+The development of the concentrations of solvents in pumped groundwater is calculated based on:
+\itemize{
+\item streamline calculations (backwards from well screens) in a \href{https://oss.deltares.nl/web/imod/mipwa-showcase}{MIPWA} groundwater model;
+\item Initial concentrations in specified layers;
+\item Levels of concentration layers;
+\item Parameters of different processes.
+}
 }
 \details{
-This package exports the following functions:
+The mipwelcona package is a further development of the program \href{https://edepot.wur.nl/10147}{WELCONA}.
+
+The following \strong{processes} can be specified:
+\itemize{
+\item Dispersion;
+\item Retardation;
+\item Decay.
+}
+
+The following \strong{functions} are exported:
 \itemize{
 \item \code{\link{mw_read_streamlines}}
 \item \code{\link{mw_read_well_filters}}
@@ -16,10 +31,52 @@ This package exports the following functions:
 \item \code{\link{mw_conc_streamlines}}
 \item \code{\link{mw_create_sl_fltr_table}}
 \item \code{\link{mw_conc_filters}}
+}
+
+Sample \strong{data sets} are made available by calling the appropiate functions:
+\itemize{
 \item \code{\link{mw_example_concentrations}}
 \item \code{\link{mw_example_conc_layer_levels}}
 \item \code{\link{mw_example_base_streamline_conc_table}}
 \item \code{\link{mw_example_conc_streamlines}}
 \item \code{\link{mw_example_sl_fltr_table}}
+}
+
+\strong{Example work flow:}
+\itemize{
+\item Step 1: read streamlines.
+}\preformatted{         fname <- system.file("extdata","streamlines.iff",package="mipwelcona")
+         strm_lns <- mw_read_streamlines(fname)
+}
+\itemize{
+\item Step 2: Read well filters.
+}\preformatted{         fname <- system.file("extdata","well_filters.ipf",package="mipwelcona")
+         well_fltrs <- mw_read_well_filters(fname)
+}
+\itemize{
+\item Step 3: Create concentration layer levels (8 example rasters layers in this case).
+}\preformatted{         conc_l_lev <- mw_example_conc_layer_levels()
+}
+\itemize{
+\item Step 4: Create Initial concentrations of different layers in the subsoil (9 example rasters layers in this case).
+}\preformatted{         conc_l <- mw_example_concentrations()
+}
+\itemize{
+\item Step 5: Initialize base streamline concentration table.
+}\preformatted{         conc_strm_lns <- mw_conc_init(strm_lns, conc_l_lev, conc_l)
+}
+\itemize{
+\item Step 6: Calculate concentrations on streamlines at specified times.
+}\preformatted{         conc_streamlines <- mw_conc_streamlines(conc_strm_lns, times=c(1*365,5*365,10*365,25*365), processes=c("dispersion","decay", "retardation"), alpha=0.3, rho=3, labda=0.0001, retard=1)
+}
+\itemize{
+\item Step 7: Create table with indices linking the streamlines to well filters.
+}\preformatted{         sl_fltr_table <- mw_create_sl_fltr_table(strm_lns, well_fltrs, maxdist=100)
+}
+\itemize{
+\item Step 8: Calculate concentrations (mixed) of selected filters.
+}\preformatted{         # Overrule previously created table first for this example. Normally, you wouln't do this!
+         sl_fltr_table <- mw_example_sl_fltr_table()
+         conc <- mw_conc_filters( fltr_nrs=c(1,2), well_fltrs, sl_fltr_table, conc_streamlines )
 }
 }
