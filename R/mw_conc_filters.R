@@ -1,6 +1,6 @@
 #' Calculate concentrations (mixed) of selected filters at times as specified in table created with \code{\link{mw_conc_streamlines}}
 #'
-#' @param fltr_nrs (unique) Well numbers (numeric vector).
+#' @param fltr_nrs Well filter numbers (numeric vector).
 #' @inheritParams .mw_conc_fltr
 #' @inheritParams .nearest_well_fltr
 #' @return Dataframe with the following variables (columns):

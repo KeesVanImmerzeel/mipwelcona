@@ -22,6 +22,7 @@
 #' * \code{\link{mw_conc_streamlines}}
 #' * \code{\link{mw_create_sl_fltr_table}}
 #' * \code{\link{mw_conc_filters}}
+#' * \code{\link{mw_conc_wells}}
 #'
 #' Sample **data sets** are made available by calling the appropiate functions:
 #'

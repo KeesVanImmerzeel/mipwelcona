@@ -5,49 +5,32 @@
 #' @inheritParams .mw_conc_fltr
 #' @inheritParams .nearest_well_fltr
 #' @return Dataframe with the following variables (columns):
-#' * WL_NR: (unique) Well number (numeric)
 #' * Q_WL: Extraction (m3/day; negative is extraction; positive is infiltration) (numeric)
 #' * TIME: Time, days (numeric)
 #' * CONC: Concentration (numeric)
-# Example with fake data
 # @examples
-# sl_fltr_table <- chk_sl_fltr_table
-# sl_fltr_table[98,]$FLTR_NR <- 2
-# sl_fltr_table[99,]$FLTR_NR <- 2
-# sl_fltr_table[100,]$FLTR_NR <- 2
-# x <- .mw_conc_well( well_nr=1, well_fltrs=chk_mw_read_well_filters, sl_fltr_table,
-#                     conc_streamlines=chk_mw_conc_streamlines )
+# fname <- system.file("extdata","well_filters.ipf",package="mipwelcona")
+# well_fltrs <- mw_read_well_filters(fname)
+# sl_fltr_table <- mw_example_sl_fltr_table()
+# conc_streamlines <- mw_example_conc_streamlines()
+# conc <- .mw_conc_well( well_nr=1, well_fltrs, sl_fltr_table, conc_streamlines )
 # @export
 .mw_conc_well <-
   function(well_nr,
            well_fltrs,
            sl_fltr_table,
            conc_streamlines) {
-    well_fltrs %<>%  dplyr::filter(WL_NR == well_nr) %>% dplyr::select(c(FLTR_NR, WL_NR, Q_FLTR))
-    if (nrow(well_fltrs) < 1) {
+    fltr_nrs <-
+      well_fltrs %>% dplyr::filter(WL_NR == well_nr) %>% dplyr::pull(FLTR_NR)
+    if (length(fltr_nrs) < 1) {
       return(NA)
     }
-    conc <-
-      apply(
-        well_fltrs$FLTR_NR %>% as.array(),
-        1,
-        .mw_conc_fltr,
+    return(
+      mw_conc_filters(
+        fltr_nrs,
+        well_fltrs,
         sl_fltr_table,
         conc_streamlines
       )
-    conc %<>% na.omit.list() # Remove results when no concentrations are available
-    if (length(conc)==0) {
-      return(NA)
-    }
-    conc %<>%
-      data.table::rbindlist() %>%
-      dplyr::left_join(well_fltrs, by = "FLTR_NR") %>%
-      dplyr::group_by(TIME) %>%
-      dplyr::summarise(CONC = weighted.mean(CONC, Q_FLTR), .groups =
-                         "drop") %>%
-      dplyr::mutate(WL_NR = well_nr) %>%
-      dplyr::mutate(Q_WL=sum(well_fltrs$Q_FLTR)) %>%
-      dplyr::relocate(Q_WL) %>%
-      dplyr::relocate(WL_NR)
-    return(conc)
+    )
   }

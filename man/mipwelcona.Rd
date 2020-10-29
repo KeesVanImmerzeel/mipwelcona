@@ -31,6 +31,7 @@ The following \strong{functions} are exported:
 \item \code{\link{mw_conc_streamlines}}
 \item \code{\link{mw_create_sl_fltr_table}}
 \item \code{\link{mw_conc_filters}}
+\item \code{\link{mw_conc_wells}}
 }
 
 Sample \strong{data sets} are made available by calling the appropiate functions:

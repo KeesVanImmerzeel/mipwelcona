@@ -3,6 +3,7 @@
 export(mw_conc_filters)
 export(mw_conc_init)
 export(mw_conc_streamlines)
+export(mw_conc_wells)
 export(mw_create_sl_fltr_table)
 export(mw_example_base_streamline_conc_table)
 export(mw_example_conc_layer_levels)

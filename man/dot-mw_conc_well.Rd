@@ -18,7 +18,6 @@
 \value{
 Dataframe with the following variables (columns):
 \itemize{
-\item WL_NR: (unique) Well number (numeric)
 \item Q_WL: Extraction (m3/day; negative is extraction; positive is infiltration) (numeric)
 \item TIME: Time, days (numeric)
 \item CONC: Concentration (numeric)

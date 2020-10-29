@@ -28,7 +28,8 @@ Then load the package with:
 - `mw_conc_init()`: Initialize base streamline concentration table;
 - `mw_conc_streamlines()`: Calculate concentrations on streamlines at specified times.
 - `mw_create_sl_fltr_table()`: Create table with indices linking the streamlines to well filters.
-- `mw_conc_filters()`: Calculate concentrations (mixed) of selected filters at times as specified in table created     with `mw_conc_streamlines()`
+- `mw_conc_filters()`: Calculate concentrations (mixed) of selected filters at times as specified in table created with `mw_conc_streamlines()`
+- `mw_conc_wells()`: Calculate concentrations (mixed) of selected wells at times as specified in table created with `mw_conc_streamlines()`.
 
 Functions to create example data:
 
